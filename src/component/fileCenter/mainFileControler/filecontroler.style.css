@@ -1,0 +1,35 @@
+.filecontrolerStyle{}
+
+.filecontrolerStyle p.headline {
+    text-align: center;
+    margin:20px;
+    font-size: 44px;
+}
+
+.filecontrolerStyle .fileGrid{
+    width:100%;
+
+    display: grid; 
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+
+.filecontrolerStyle .fileGrid .fileUpload{
+    grid-column: 1/2;
+    grid-row: 1/-1;
+
+    width:80%;
+    margin-left:10%;
+
+}
+
+
+.filecontrolerStyle .fileGrid .filedownload{
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+
+    border: 3px solid rgb(192, 192, 192); 
+    width:80%;
+}
+

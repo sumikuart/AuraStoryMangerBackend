@@ -7,7 +7,7 @@ import './downloadfile.style.css'
 
 const ListFileData = props => (
 
-    <li><a href={"../upload/files/"+props.currentlist.list_name} download>{props.currentlist.list_name}</a></li>
+    <li><a href={"../upload/files/"+props.currentlist.list_name} download>{props.currentlist.list_name} - {props.currentlist.list_date}</a></li>
 
 )
 
@@ -44,10 +44,12 @@ filenameMapper =() =>{
         return(
             <div className="downloadFileDiv">
 
-                <p>Filelist:</p>
+                <div className="headliner">
+                    <p>Download Files:</p>
+                </div>
+     
 
                 <form> 
-                    <label>Get Files</label>
                     <button onClick={this.onClickGetListHandler}>Get List</button>
                 </form>
 

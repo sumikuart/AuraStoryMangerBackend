@@ -1,0 +1,36 @@
+.navbarstyle{
+    width:100%;
+    height:100%;
+
+    border-bottom: 3px solid rgb(192, 192, 192); 
+}
+
+.navbarstyle nav ul {
+    display:flex;
+    justify-content: space-between; 
+    width:80%;
+    margin: 0 auto;
+    
+}
+
+.navbarstyle nav ul li {
+    list-style: none;
+    width:40%;
+}
+
+.navbarstyle nav ul li a {
+    color:white;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+    padding:10px;
+    margin-top:20px;
+    text-decoration: none;
+}
+
+.navbarstyle nav ul li a:hover {
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(0, 255, 157);
+-moz-box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+}

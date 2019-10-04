@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+.contentGrid{
+    width:100%;
+
+    display: grid; 
+    grid-template-columns:10% 1fr;
+    grid-template-rows: 90px 1fr 1fr;
+
+}
+
+.contentGrid .topNav {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+}
+
+.contentGrid .sideNav{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.contentGrid .mainContent{
+    grid-column: 2/-1;
+    grid-row: 2/3;
+     
+}
+
+.contentGrid .footerContent{
+    grid-column: 1/-1;
+    grid-row: 3 /-1;
+}
+
+
+

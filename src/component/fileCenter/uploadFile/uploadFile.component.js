@@ -74,7 +74,7 @@ if(this.state.list_name_in_use.length === 0){
 } else {
     for(var i = 0; i < this.state.list_name_in_use.length; i++){
 
-        console.log('hej')
+      if(this.state.list_name_in_use[i].list_name){ 
         if (this.state.list_name_in_use[i].list_name.includes(this.state.list_name)){
             console.log('søger om navnet er brugt')
             alert('navnet er i brug; '+ this.state.list_name )
@@ -108,11 +108,11 @@ if(this.state.list_name_in_use.length === 0){
                     }
                     
                 )
-           alert('Filen er Uploaded')
+                    alert('Filen er Uploaded')
             }
 
 
-        }
+        } }
 
     }
 
@@ -126,14 +126,16 @@ if(this.state.list_name_in_use.length === 0){
 
     render(){
         return(
-            <div>
+            <div className="fileUploadStyle">
 
-                <p>Velkommen til File upload:</p>
+                <div className="headline">
+                    <p>Upload File:</p>
+                </div>
+
                 
                 <form>
-                    <label>Vælg en File</label>
                     <input type="file" name="file" onChange={this.onChangeHandler} />
-                    <button onClick={this.onClickHandler}>Upload Historien</button>
+                    <button onClick={this.onClickHandler}>Upload</button>
                 </form>
 
 

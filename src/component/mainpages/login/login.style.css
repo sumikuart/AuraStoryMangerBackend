@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
+
+
+.loginStyle {
+    width:30%;
+    position: absolute;
+    top:15%;
+    left:50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
+.loginStyle .headline {
+    font-family: 'Caveat', sans-serif;
+    text-align: center; 
+    font-size: 62px;
+    margin-bottom: 50px;
+
+}
+
+
+.loginStyle .frame {
+    border: 5px solid rgb(218, 218, 218);
+    border-radius: 10px;
+    background-color: rgb(40, 40, 40);
+    padding:20px;
+    -webkit-box-shadow: 0px 0px 65px 6px rgba(235,134,188,1);
+-moz-box-shadow: 0px 0px 65px 6px rgba(235,134,188,1);
+box-shadow: 0px 0px 65px 6px rgba(235,134,188,1);
+}
+
+.loginStyle .frame p{
+    font-size: 32px;
+    margin:30px;    
+    margin-top:0;
+}
+
+.loginStyle .frame form{
+
+    width:100%;
+    height:100%;
+    
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+.loginStyle .frame form label {
+    font-size: 24px;
+}
+
+
+.loginStyle .frame form div.userinput label{
+        width:100%;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+
+.loginStyle .frame form div.passinput  {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+
+
+.loginStyle .frame form input[type=password],
+ .loginStyle .frame form div.userinput input[type=text] {
+    width:100%;
+
+margin:10px;
+margin-left:0;
+font-weight: bolder;
+font-size: 20px;
+transition: 0.2s;
+}
+
+
+.loginStyle .frame form input[type=password]:focus,
+ .loginStyle .frame form div.userinput input[type=text]:focus {
+width:100%;
+margin:10px;
+margin-left:0;
+font-weight: bolder;
+font-size: 28px;
+-webkit-box-shadow: 0px 0px 25px 0px rgba(0,255,213,1);
+-moz-box-shadow: 0px 0px 25px 0px rgba(0,255,213,1);
+box-shadow: 0px 0px 25px 0px rgba(0,255,213,1);
+}
+
+
+.loginStyle .frame form input[type=password]:hover,
+ .loginStyle .frame form div.userinput input[type=text]:hover {
+-webkit-box-shadow: 0px 0px 25px 0px rgba(0,255,213,1);
+-moz-box-shadow: 0px 0px 25px 0px rgba(0,255,213,1);
+box-shadow: 0px 0px 25px 0px rgba(0,255,213,1);
+}
+
+
+
+
+
+.loginStyle .frame form input[type=submit] {
+    width:20%;
+    margin-top:30px;
+    padding:5px;
+    font-size: 24px;
+    grid-column: 1/2;
+    grid-row: 3/-1;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius:10px;
+
+}
+
+
+.loginStyle .frame form input[type=submit]:hover {
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(0, 255, 157);
+-moz-box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+}
