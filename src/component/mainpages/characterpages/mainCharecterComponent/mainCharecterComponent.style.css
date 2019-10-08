@@ -1,0 +1,44 @@
+.mainEditComponentStyle{
+    display:grid;
+    grid-template-columns:1fr 15%;
+    grid-template-rows: 1fr 1fr 90px;
+
+    width:100%;
+    height:100%;
+}
+
+.mainEditComponentStyle .mainCharecterEditContent{
+    grid-column: 1/2;
+    grid-row: 1/-1;
+}
+
+.mainEditComponentStyle .mainCharecterEditTool{
+    height:100%;
+    border-left: 3px solid rgba(255, 255, 255, 0.288);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.288);
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+}
+.mainEditComponentStyle .mainCharecterEditTool .button {
+    margin:20px;
+    text-align: center;
+}
+
+.mainEditComponentStyle .mainCharecterEditTool .button p{
+    border: 1px solid white;
+    border-radius: 10px;
+    padding:5px;
+    color:white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+    width:80%;
+    display: block;
+}
+
+.mainEditComponentStyle .mainCharecterEditTool .button p:hover{
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(0, 255, 157);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+    box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+}

@@ -1,0 +1,106 @@
+.SelectOrMakeCharecterStyle {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.288);
+    text-align: center;
+    width:100%;
+    
+}
+
+.SelectOrMakeCharecterStyle  .headline{
+    margin-top:15px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.SelectOrMakeCharecterStyle .getCompleteChList{
+
+    border: 3px solid rgba(255, 255, 255, 0.288);
+    width:20%;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(80, 172, 233);
+    -moz-box-shadow: 0px 0px 25px 0px rgb(80, 172, 233);
+    box-shadow: 0px 0px 25px 0px rgb(80, 172, 233);
+}
+
+.SelectOrMakeCharecterStyle .getCompleteChList:hover{
+    font-size:24px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(160, 217, 255);
+    -moz-box-shadow:  0px 0px 25px 0px rgb(160, 217, 255);
+    box-shadow:  0px 0px 25px 0px rgb(160, 217, 255);
+}
+
+
+
+.SelectOrMakeCharecterStyle form {
+    /* display: inline; */
+}
+
+.SelectOrMakeCharecterStyle form label {
+    font-size: 24px;
+    margin-right:30px;
+    display: inline-block;
+    width: 25%
+}
+
+
+.SelectOrMakeCharecterStyle .addCharecter,
+.SelectOrMakeCharecterStyle .addCharecterVersion {
+    border: 1px solid white;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    padding:0px 30px 0px 30px;
+    font-weight: bolder;
+    margin:15px;
+    transition: 0.2s
+ 
+}
+
+.SelectOrMakeCharecterStyle .addCharecter:hover,
+.SelectOrMakeCharecterStyle .addCharecterVersion:hover {
+    border: 1px solid white;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    padding:0px 30px 0px 30px;
+    font-weight: bolder;
+    margin:15px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(233, 80, 233);
+    -moz-box-shadow: 0px 0px 25px 0px rgb(233, 80, 233);
+    box-shadow: 0px 0px 25px 0px rgb(233, 80, 233);
+}
+
+.SelectOrMakeCharecterStyle .selectCharecterDiv{
+    margin-bottom: 20px;
+}
+.SelectOrMakeCharecterStyle  .generateCharecterLink {
+
+    margin-top:10px;
+
+    
+}
+
+.SelectOrMakeCharecterStyle  .generateCharecterLink a{
+    color:white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding:10px;
+    transition: 0.2s;
+    background-color: rgb(40, 40, 40);
+
+}
+
+.SelectOrMakeCharecterStyle  .generateCharecterLink a:hover{
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(0, 255, 157);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+    box-shadow: 0px 0px 25px 0px rgba(0, 255, 157);
+}
+
+.SelectOrMakeCharecterStyle .selectCharecterDiv {
+    text-align: left;
+    width:40%;
+    margin: 0 auto;
+}

@@ -13,8 +13,10 @@ import Footer from './component/navpages/footer/footer.component'
 
 // Login:
 import LoginComponent from './component/mainpages/login/login.component'
+
 // Landing Page: 
 import LandingComponent from './component/mainpages/landingpage/landingPage.component'
+import MainCharecterComponent from './component/mainpages/characterpages/mainCharecterComponent/mainCharecterComponent.component'
 
 //File Center: 
 import FileControler from './component/fileCenter/mainFileControler/filecontroler.component'
@@ -44,6 +46,7 @@ function App() {
             <main>
             <Route exact path='/home' component={LandingComponent} />
             <Route exact path='/home/files' component={FileControler} />
+            <Route path='/home/characters' component={MainCharecterComponent} />
             </main>
             <footer></footer>
           </div>

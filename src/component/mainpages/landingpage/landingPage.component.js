@@ -13,7 +13,7 @@ class LandingComponent extends Component {
         return(
             <div className="landingpageStyle">
 
-      <p>Hej fra LandingPage</p>
+    <p>Hej fra LandingPage</p>
 
 
             </div>
