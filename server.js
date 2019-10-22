@@ -27,6 +27,73 @@ app.use('',myRoutes);
 
 //*************************************************************** */ Set up Models
 let filelistmodel = require('./models/filelist.model.js');
+let charectermodel = require('./models/charecter.model.js');
+
+//*************************************************************** */ Main Charecter Håndtering.
+
+// Make new Charecter to DB. 
+myRoutes.route('/add/savech').post(function(req,res){
+    let newch = new charectermodel(req.body);
+
+    newch.save().then(newch =>{
+        res.status(200).json({'Charecter':' Added'})
+    }).catch(err => {
+        res.status(400).send('add new Charectetr Fail')
+    })
+})
+
+// Get Complete CharecterList from DB.
+myRoutes.route('/getNameList').get(function(req,res){
+    charectermodel.find({},function(err, namelist){
+        if(err) {
+            console.log(err)
+        } else {
+            res.json(namelist)
+        }
+        
+    })
+})
+
+// Get Charecter ID from DB.
+
+myRoutes.route('/selectedCharecter/:id').get(function(req,res){
+
+    let id = req.params.id;
+
+    charectermodel.findById(id, function(err, charecter){
+        if(err) {
+            console.log(err)
+        } else {
+            res.json(charecter)
+        }
+        
+    })
+})
+
+// save Charecters.
+
+myRoutes.route('/update/:id').post(function(req,res){
+    charectermodel.findById(req.params.id, function(err, saveobj){
+
+        if(!saveobj){
+            res.status(400).send('data not found')
+        } else {
+            saveobj.ch_name = req.body.ch_name;
+   
+
+        saveobj.save().then(saveobj => {
+            res.json('Charecter Update')
+        }).catch(err => {
+            res.status(400).send("update fail.")
+        })
+    }
+    })
+
+})
+
+
+//*************************************************************** */ Main File Håndtering.
+
 
 //Get alle used names for the main document/the story
 
@@ -42,9 +109,6 @@ myRoutes.route('/get_all_file_names').get(function(req,res){
         
     })
 })
-
-//*************************************************************** */ Main File Håndtering.
-
 
 // Save name + position
 var storagevar = multer.diskStorage({
