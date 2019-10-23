@@ -91,6 +91,25 @@ myRoutes.route('/update/:id').post(function(req,res){
 
 })
 
+// Delete Charecter.
+myRoutes.delete('/delete/:id', function(req,res, next){
+    charectermodel.deleteOne({_id: req.params.id}, function(err, result){
+        if(err) {
+            console.log('fejl in delete')
+        } else {
+            var svarretur = "Antal Slettede Charatere: " + result.deletedCount
+            res.json(svarretur);
+            console.log("Antal Slettede: " + result.deletedCount) 
+        }
+    }) .catch(function(){
+        console.log("FEJL i Deleted Catch")
+    })
+})
+
+
+// søgning Charecter.
+
+
 
 //*************************************************************** */ Main File Håndtering.
 
