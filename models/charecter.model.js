@@ -6,6 +6,10 @@ let Chlist = new schema({
     ch_name: {
         type:String,
         default: ''
+    },
+    ch_vip: {
+        type:Boolean,
+        default: false
     }
 
 });

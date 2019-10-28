@@ -28,6 +28,32 @@ app.use('',myRoutes);
 //*************************************************************** */ Set up Models
 let filelistmodel = require('./models/filelist.model.js');
 let charectermodel = require('./models/charecter.model.js');
+let chaptermodel = require('./models/chapters.model.js');
+
+//*************************************************************** */ Chapter Håndtering.
+// Make new Charecter to DB. 
+myRoutes.route('/add/savechapter').post(function(req,res){
+    let newch = new chaptermodel(req.body);
+
+    newch.save().then(newch =>{
+        res.status(200).json({'Chapter':' Added'})
+    }).catch(err => {
+        res.status(400).send('add new Charectetr Fail')
+    })
+})
+
+// Get Complete chapterList from DB.
+myRoutes.route('/getChapterList').get(function(req,res){
+    chaptermodel.find({},function(err, chapterlist){
+        if(err) {
+            console.log(err)
+        } else {
+            res.json(chapterlist)
+        }
+        
+    })
+})
+
 
 //*************************************************************** */ Main Charecter Håndtering.
 
@@ -79,6 +105,7 @@ myRoutes.route('/update/:id').post(function(req,res){
             res.status(400).send('data not found')
         } else {
             saveobj.ch_name = req.body.ch_name;
+            saveobj.ch_vip = req.body.ch_vip;
    
 
         saveobj.save().then(saveobj => {
@@ -109,7 +136,19 @@ myRoutes.delete('/delete/:id', function(req,res, next){
 
 // søgning Charecter.
 
+// Find Charecters der er VIP.
+myRoutes.route('/vipchlist').get(function(req,res){
 
+    charectermodel.find({"ch_vip": true}  ,function(err, currentUser){
+        if(err){
+            console.log('an Error has accured in -get all VIPS- endpoint')
+        } else {
+            res.json(currentUser)
+        }
+
+    })
+ 
+})
 
 //*************************************************************** */ Main File Håndtering.
 
