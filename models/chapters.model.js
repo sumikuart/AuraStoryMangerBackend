@@ -9,7 +9,7 @@ let Chapterlist = new schema({
 
     chapter_name: {
         type:String,
-        default: ''
+        default: 'To be detement'
     },
 
     

@@ -54,6 +54,21 @@ myRoutes.route('/getChapterList').get(function(req,res){
     })
 })
 
+// Get Chapter from ID. 
+myRoutes.route('/getchapter/:id').get(function(req,res){
+
+    let id = req.params.id;
+
+    chaptermodel.findById(id, function(err, chapter){
+        if(err) {
+            console.log(err)
+        } else {
+            res.json(chapter)
+        }
+        
+    })
+})
+
 
 //*************************************************************** */ Main Charecter Håndtering.
 
