@@ -29,6 +29,174 @@ app.use('',myRoutes);
 let filelistmodel = require('./models/filelist.model.js');
 let charectermodel = require('./models/charecter.model.js');
 let chaptermodel = require('./models/chapters.model.js');
+let todomodel = require('./models/todo.model.js');
+
+//*************************************************************** */ Todo Håndtering.
+
+// add Todo
+myRoutes.route('/add/todo').post(function(req,res){
+    let newtodo = new todomodel(req.body);
+
+    newtodo.save().then(newch =>{
+        res.status(200).json({'todo':' Added'})
+    }).catch(err => {
+        res.status(400).send('add new todo Fail')
+    })
+})
+
+
+// Get Todo List pratical
+
+myRoutes.route('/gettodo/pratical').get(function(req,res){
+
+    todomodel.find({"todo_kategori": "practical", "todo_arkive": false}  ,function(err, currentTodo){
+        if(err){
+            console.log('an Error has accured in -get practical List- endpoint')
+        } else {
+            res.json(currentTodo)
+        }
+
+    })
+ 
+})
+
+
+// get Arkived pratical Todos
+myRoutes.route('/gettodo/pratical/arkived').get(function(req,res){
+
+    todomodel.find({"todo_kategori": "practical", "todo_arkive": true}  ,function(err, currentTodo){
+        if(err){
+            console.log('an Error has accured in -get practical List- endpoint')
+        } else {
+            res.json(currentTodo)
+        }
+
+    })
+ 
+})
+
+
+
+// Get Todo List story
+
+
+myRoutes.route('/gettodo/story').get(function(req,res){
+
+    todomodel.find({"todo_kategori": "story", "todo_arkive": false}  ,function(err, currentTodo){
+        if(err){
+            console.log('an Error has accured in -get story List- endpoint')
+        } else {
+            res.json(currentTodo)
+        }
+
+    })
+ 
+})
+
+
+// get Arkived story Todos
+myRoutes.route('/gettodo/story/arkived').get(function(req,res){
+
+    todomodel.find({"todo_kategori": "story", "todo_arkive": true}  ,function(err, currentTodo){
+        if(err){
+            console.log('an Error has accured in -get story List- endpoint')
+        } else {
+            res.json(currentTodo)
+        }
+
+    })
+ 
+})
+
+
+// Get Todo List create
+
+myRoutes.route('/gettodo/create').get(function(req,res){
+
+    todomodel.find({"todo_kategori": "create", "todo_arkive": false}  ,function(err, currentTodo){
+        if(err){
+            console.log('an Error has accured in -get create List- endpoint')
+        } else {
+            res.json(currentTodo)
+        }
+
+    })
+ 
+})
+
+
+// get Arkived create Todos
+myRoutes.route('/gettodo/create/arkived').get(function(req,res){
+
+    todomodel.find({"todo_kategori": "create", "todo_arkive": true}  ,function(err, currentTodo){
+        if(err){
+            console.log('an Error has accured in -get create List- endpoint')
+        } else {
+            res.json(currentTodo)
+        }
+
+    })
+ 
+})
+
+
+// Get alle Sidebar Todos
+myRoutes.route('/gettodo/next').get(function(req,res){
+
+    todomodel.find({"todo_Sidebar_status": "show"}  ,function(err, currentTodo){
+        if(err){
+            console.log('an Error has accured in -get create List show- endpoint')
+        } else {
+            res.json(currentTodo)
+        }
+
+    })
+ 
+})
+
+
+
+// Get a Todo Based on Id.
+myRoutes.route('/gettodo/:id').get(function(req,res){
+
+    let id = req.params.id;
+
+    todomodel.findById(id, function(err, todo){
+        if(err) {
+            console.log(err)
+        } else {
+            res.json(todo)
+        }
+        
+    })
+})
+
+
+// Save Edit Todos: 
+myRoutes.route('/update/todo/:id').post(function(req,res){
+    todomodel.findById(req.params.id, function(err, saveobj){
+
+        if(!saveobj){
+            res.status(400).send('data not found')
+        } else {
+            saveobj.todo_name = req.body.todo_name;
+            saveobj.todo_description = req.body.todo_description;
+            saveobj.todo_kategori = req.body.todo_kategori;
+            saveobj.todo_arkive = req.body.todo_arkive;
+            saveobj.todo_Sidebar_status = req.body.todo_Sidebar_status;
+            saveobj.todo_complete_status = req.body.todo_complete_status;
+   
+
+        saveobj.save().then(saveobj => {
+            res.json('Todo Update')
+        }).catch(err => {
+            res.status(400).send("update fail.")
+        })
+    }
+    })
+
+})
+
 
 //*************************************************************** */ Chapter Håndtering.
 // Make new Charecter to DB. 
@@ -67,6 +235,29 @@ myRoutes.route('/getchapter/:id').get(function(req,res){
         }
         
     })
+})
+
+// Save Chapter:
+
+myRoutes.route('/update/chapter/:id').post(function(req,res){
+    chaptermodel.findById(req.params.id, function(err, saveobj){
+
+        if(!saveobj){
+            res.status(400).send('data not found')
+        } else {
+            saveobj.chapter_nr = req.body.chapter_nr;
+            saveobj.chapter_name = req.body.chapter_name;
+            saveobj.chapter_status = req.body.chapter_status;
+   
+
+        saveobj.save().then(saveobj => {
+            res.json('Chapter Update')
+        }).catch(err => {
+            res.status(400).send("update fail.")
+        })
+    }
+    })
+
 })
 
 
