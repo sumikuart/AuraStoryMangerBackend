@@ -16,6 +16,16 @@ let Chapterlist = new schema({
     chapter_status: {
         type:String,
         default: 'none'
+    },
+
+    chapter_page_length: {
+        type:Number,
+        default: 0
+    },
+
+    chapter_charecter_appear: {
+        type:Array,
+        default: []
     }
 
 });

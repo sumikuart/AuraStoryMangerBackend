@@ -29,8 +29,8 @@ let Todolist = new schema({
     },
 
     todo_complete_status: {
-        type:Boolean,
-        default: false
+        type:String,
+        default: 'Not Complete'
     }
 
 

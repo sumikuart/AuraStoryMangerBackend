@@ -198,8 +198,24 @@ myRoutes.route('/update/todo/:id').post(function(req,res){
 })
 
 
+// DELTE Edit Todo: 
+myRoutes.delete('/delete/todo/:id', function(req,res, next){
+    todomodel.deleteOne({_id: req.params.id}, function(err, result){
+        if(err) {
+            console.log('fejl in delete')
+        } else {
+            var svarretur = "Antal Slettede Todos: " + result.deletedCount
+            res.json(svarretur);
+            console.log("Antal Slettede: " + result.deletedCount) 
+        }
+    }) .catch(function(){
+        console.log("FEJL i Deleted Catch")
+    })
+})
+
+
 //*************************************************************** */ Chapter Håndtering.
-// Make new Charecter to DB. 
+// Make new Chapter to DB. 
 myRoutes.route('/add/savechapter').post(function(req,res){
     let newch = new chaptermodel(req.body);
 
@@ -248,7 +264,8 @@ myRoutes.route('/update/chapter/:id').post(function(req,res){
             saveobj.chapter_nr = req.body.chapter_nr;
             saveobj.chapter_name = req.body.chapter_name;
             saveobj.chapter_status = req.body.chapter_status;
-   
+            saveobj.chapter_page_length = req.body.chapter_page_length;
+            saveobj.chapter_charecter_appear = req.body.chapter_charecter_appear;
 
         saveobj.save().then(saveobj => {
             res.json('Chapter Update')
@@ -258,6 +275,21 @@ myRoutes.route('/update/chapter/:id').post(function(req,res){
     }
     })
 
+})
+
+// Delte Chapter by ID: 
+myRoutes.delete('/delete/chapter/:id', function(req,res, next){
+    chaptermodel.deleteOne({_id: req.params.id}, function(err, result){
+        if(err) {
+            console.log('fejl in delete')
+        } else {
+            var svarretur = "Antal Slettede chapter: " + result.deletedCount
+            res.json(svarretur);
+            console.log("Antal Slettede: " + result.deletedCount) 
+        }
+    }) .catch(function(){
+        console.log("FEJL i Deleted Catch")
+    })
 })
 
 
